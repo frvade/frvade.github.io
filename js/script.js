@@ -103,13 +103,10 @@ $(document).ready(function() {
   salut();
 
   $(".button").click(function() {
-    $(".game-rules").css("opacity", "0");
-    $(".items").shuffleChildren();
-    $(".items").fadeIn();
-    setTimeout(function() {
-      //$(".item").removeClass("flipped");
-      $(".game-rules").remove();
-    }, 10000);
+    $items = $(".items");
+    $items.shuffleChildren();
+    $(".game-rules").remove();
+    $items.fadeIn();
   });
 });
 
