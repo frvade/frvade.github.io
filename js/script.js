@@ -104,10 +104,18 @@ $(document).ready(function() {
 
   $(".button").click(function() {
     $(".game-rules").css("opacity", "0");
+    $(".items").shuffleChildren();
     $(".items").fadeIn();
     setTimeout(function() {
-      $(".item").removeClass("flipped");
+      //$(".item").removeClass("flipped");
       $(".game-rules").remove();
     }, 10000);
   });
 });
+
+jQuery.fn.shuffleChildren = function(){
+  var p = this[0];
+  for (var i = p.children.length; i >= 0; i--) {
+    p.appendChild(p.children[Math.random() * i | 0]);
+  }
+};
